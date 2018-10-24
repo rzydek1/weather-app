@@ -1,0 +1,41 @@
+<div class="container bg-dark p-3">
+  <form (ngSubmit)="onSubmit()" #formData="ngForm">
+
+    <div class="row">
+      <div *ngIf="errorMsg" class="col-12 text-center text-warning pb-2">
+        {{errorMsg}}
+      </div>
+        <div class="col-md-6 col-sm-12 col-lg-3">
+          <input [(ngModel)]="message.name" name="name" type="text" class="form-control " pattern="^[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]{2,20}[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]$"
+          placeholder="Imię" required>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-3">
+          <input [(ngModel)]="message.surname" name="surname" type="text" class="form-control" pattern="^[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]{3,20}[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]$"
+          placeholder="Nazwisko" required>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-2">
+            <input [(ngModel)]="message.town" name="town" type="text" class="form-control" pattern="^\S+[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{3,20}[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]$"
+             placeholder="Miasto" required>
+        </div>
+        <div class="col-md-6 col-sm-12 col-lg-2">
+            <!-- <input [(ngModel)]="message.country" name="country" type="text" class="form-control" pattern="^\S+[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ ]{3,20}[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]$"
+            placeholder="Kraj" required> -->
+            <select class="form-control" [(ngModel)]="message.country" name="country" required>
+              <option *ngFor="let state of countries; index as i" >{{countries[i]}}</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-lg-2 col-sm-12 ">
+            <select class="col-md-6 col-sm-12 col-lg-2" [(ngModel)]="message.sex" name="sex" class="form-control"  required>
+              <option >Mężczyzna</option>
+              <option >Kobieta</option>
+            </select>
+        </div>
+        <div class="col-12 text-center">
+          <button class="btn btn-light col-lg-3 col-sm-6 col-12 mt-3" type="submit" [disabled]="!formData.valid">
+            <span *ngIf="!user">Dodaj</span>
+            <span *ngIf="user">Zapisz zmiany</span>
+          </button>
+        </div>
+      </div>
+  </form>
+</div>

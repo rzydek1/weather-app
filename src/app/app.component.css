@@ -1,0 +1,8 @@
+main {
+  min-height: 100vh;
+  background: url('../assets/weather.jpg') no-repeat;
+  background-size: cover;
+  background-position: right center;
+  background-attachment: fixed;
+}
+

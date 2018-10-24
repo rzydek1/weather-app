@@ -1,0 +1,39 @@
+li {
+  border-bottom: 1px dashed #DAE0E5;
+}
+
+li:first-child {
+  padding-top: 20px;
+}
+
+li:last-child {
+  border: none;
+  padding-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.userInfo {
+  line-height: 60px;
+}
+
+fa {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+    .dataButtons {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+}
+
+
+@media (max-width: 991px) {
+  .userInfo {
+    line-height: 45px;
+  }
+}
